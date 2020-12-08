@@ -1,5 +1,6 @@
 package com.example.product.data.entities
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,5 +9,6 @@ data class Product(
         var productName:String,
         var price:String?,
         var qty:String?,
-        var productImg:String?
+        @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+        var productImg:ByteArray?
                   )

@@ -1,6 +1,7 @@
 package com.example.product.ui.adapters
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,10 @@ class ProductAdapter : PagedListAdapter<Product, ProductAdapter.ProductViewHolde
                 productName.text = product.productName
                 price.text = product.price
                 qty.text = product.qty
+                product.productImg?.let {
+                    val bitmap1 = BitmapFactory.decodeByteArray(product.productImg, 0, product.productImg !!.size, BitmapFactory.Options())
+                    image.setImageBitmap(bitmap1)
+                }
             }
             delete.setOnClickListener {
                 product?.let {
