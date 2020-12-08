@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name = "RoundCornerEditTextBox"
+           parent = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <item name = "boxStrokeColor">@color/purple_500</item>
+    </style>
+</resources>

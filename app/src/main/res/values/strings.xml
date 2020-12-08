@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Product</string>
+    <string name="product_name_text">Product Name</string>
+    <string name="price_text">Price</string>
+    <string name="qty_text">Qty</string>
+    <string name="insert_text">Insert</string>
+</resources>
