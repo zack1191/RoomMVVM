@@ -78,5 +78,7 @@ dependencies {
 
     //paging
     implementation 'androidx.paging:paging-runtime-ktx:2.1.2'
-
+    //firebase
+    implementation 'com.google.firebase:firebase-database:19.3.0'
 }
+apply plugin: 'com.google.gms.google-services'

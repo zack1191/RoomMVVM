@@ -1,11 +1,11 @@
 package com.example.product.ui.activities
 
+import android.R.attr
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -19,8 +19,9 @@ import com.example.product.data.entities.Product
 import com.example.product.ui_seperator.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_insert.*
+import kotlinx.android.synthetic.main.item_product.*
 import java.io.File
-import java.lang.Exception
+import java.io.IOException
 
 @AndroidEntryPoint
 class InsertActivity : AppCompatActivity()
@@ -60,6 +61,7 @@ class InsertActivity : AppCompatActivity()
             Toast.makeText(applicationContext, "Saved!", Toast.LENGTH_SHORT).show()
         }
         ivCamera.setOnClickListener {
+
             Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
                 takePictureIntent.resolveActivity(packageManager)?.also {
                     try
@@ -92,6 +94,7 @@ class InsertActivity : AppCompatActivity()
     override fun onActivityResult(requestCode : Int, resultCode : Int, data : Intent?)
     {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK)
         {
             val scanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
@@ -102,6 +105,5 @@ class InsertActivity : AppCompatActivity()
             val bitmap = Utils.getResizedBitmap(file.path, width, height)
             ivProduct.setImageBitmap(bitmap)
         }
-
     }
 }

@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 class MainViewModel @ViewModelInject constructor(private val mainRepository : MainRepository, @Assisted val savedStateHandle : SavedStateHandle) : ViewModel()
 {
     val getAllData : LiveData<PagedList<Product>> = mainRepository.productList
+    val productListLiveData : LiveData<List<Product>> = mainRepository.productListLiveData
     fun insertData(product : Product) =
             viewModelScope.launch(Dispatchers.IO) {
                 mainRepository.insertData(product)

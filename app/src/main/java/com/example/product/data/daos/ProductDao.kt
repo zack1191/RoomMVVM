@@ -1,5 +1,6 @@
 package com.example.product.data.daos
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,6 +12,9 @@ interface ProductDao
 {
     @Query("SELECT * FROM Product")
     fun getAllData() : androidx.paging.DataSource.Factory<Int, Product>
+
+    @Query("SELECT * FROM Product")
+    fun getProductList() : LiveData<List<Product>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(product : Product)
